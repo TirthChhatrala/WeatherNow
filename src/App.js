@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import WeatherForm from "./components/WeatherForm";
+import WeatherDisplay from "./components/WeatherDisplay";
+import "./App.css";
+
+const API_KEY = "e2a8e3e847d511792d12a61b7b40d7b4";
 
 function App() {
+  const [weatherData, setWeatherData] = useState(null);
+  const [error, setError] = useState(null);
+
+  const fetchWeather = async (city) => {
+    setError(null);
+    setWeatherData(null);
+    try {
+      const response = await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
+      );
+      if (!response.ok) {
+        if (response.status === 404) {
+          throw new Error("City not found. Please check the city name.");
+        } else {
+          throw new Error("Failed to fetch weather data.");
+        }
+      }
+      const data = await response.json();
+      setWeatherData(data);
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-container">
+      <h1 className="app-title">Weather App</h1>
+      <WeatherForm onSearch={fetchWeather} />
+      <WeatherDisplay weather={weatherData} error={error} />
     </div>
   );
 }
