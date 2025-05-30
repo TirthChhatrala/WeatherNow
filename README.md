@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ````markdown
 # 🌦️ Weather App using React.js & OpenWeatherMap API
 
@@ -85,6 +84,3 @@ MIT License
 Created by [Tirth Chhatrala](https://github.com/TirthChhatrala)
 
 ```
-=======
-# WeatherNow
->>>>>>> 07893c1a300cd4a1cea2ba8baa1eeca2d4444431
