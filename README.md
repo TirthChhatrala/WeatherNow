@@ -1,4 +1,3 @@
-````markdown
 # 🌦️ Weather App using React.js & OpenWeatherMap API
 
 A responsive React.js application that fetches and displays current weather data using the OpenWeatherMap API based on city input.
