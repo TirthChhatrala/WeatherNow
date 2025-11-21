@@ -3,7 +3,7 @@ import WeatherForm from "./components/WeatherForm";
 import WeatherDisplay from "./components/WeatherDisplay";
 import "./App.css";
 
-const API_KEY = "YOUR_OPENWEATHERMAP_API_KEY";
+const API_KEY = "Add Your API key";
 
 function App() {
   const [weatherData, setWeatherData] = useState(null);

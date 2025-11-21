@@ -82,4 +82,3 @@ MIT License
 
 Created by [Tirth Chhatrala](https://github.com/TirthChhatrala)
 
-```
